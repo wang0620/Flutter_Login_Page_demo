@@ -1,15 +1,24 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login_page_demo/utilities/constants.dart';
+import 'package:flutter/widgets.dart';
+import 'package:video_player/video_player.dart';
 
 class LoginScreen extends StatefulWidget {
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  VideoPlayerController _controller;
   bool _rememberMe = false;
+  bool _visible = false;
   final FocusNode focusNode = FocusNode();
+
+
+
 
   Widget _buildEmailTBX() {
     return Column(
@@ -56,7 +65,8 @@ class _LoginScreenState extends State<LoginScreen> {
           height: 60.0,
           child: TextField(
             obscureText: true,
-            style: TextStyle(color: Colors.white, fontFamily: 'Source Sans Pro'),
+            style:
+                TextStyle(color: Colors.white, fontFamily: 'Source Sans Pro'),
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
@@ -223,7 +233,13 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
+
+
+          /*_getVideoBackground(),
+          _getBackgroundColor(),*/
+
+          /*Container(
+
             height: double.infinity,
             width: double.infinity,
             decoration: BoxDecoration(
@@ -239,7 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 stops: [0.1, 0.4, 0.7, 0.9],
               ),
             ),
-          ),
+          ),*/
           Container(
             height: double.infinity,
             child: SingleChildScrollView(
